@@ -26,7 +26,15 @@ const handleclick = (event) => {
   instance.show();
 };
 
+const modalClose = (event) => {
+  const imgOpen = document.querySelector(".basicLightbox--visible ");
+  if (event.key === "Escape" && imgOpen === true) {
+    basicLightbox.close();
+  }
+};
+
 gallery.addEventListener("click", handleclick);
+document.addEventListener("keydown", modalClose);
 
 console.log(galleryItems);
 console.log(gallery);

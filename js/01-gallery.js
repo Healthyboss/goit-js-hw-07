@@ -17,5 +17,16 @@ for (const item of galleryItems) {
   );
 }
 
+const handleclick = (event) => {
+  event.preventDefault();
+  const imgOriginal = event.target.dataset.source;
+  const instance = basicLightbox.create(
+    `<img src="${imgOriginal}" width="800" height="600">`
+  );
+  instance.show();
+};
+
+gallery.addEventListener("click", handleclick);
+
 console.log(galleryItems);
 console.log(gallery);

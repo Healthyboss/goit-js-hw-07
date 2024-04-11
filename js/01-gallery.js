@@ -17,24 +17,23 @@ for (const item of galleryItems) {
   );
 }
 
-const handleclick = (event) => {
+const clickImage = (event) => {
   event.preventDefault();
   const imgOriginal = event.target.dataset.source;
   const instance = basicLightbox.create(
     `<img src="${imgOriginal}" width="800" height="600">`
   );
   instance.show();
+
+  const closeImage = (event) => {
+    if (event.key === "Escape") {
+      instance.close();
+    }
+  };
+  document.addEventListener("keydown", closeImage);
 };
 
-const modalClose = (event) => {
-  const imgOpen = document.querySelector(".basicLightbox--visible ");
-  if (event.key === "Escape" && imgOpen === true) {
-    basicLightbox.close();
-  }
-};
-
-gallery.addEventListener("click", handleclick);
-document.addEventListener("keydown", modalClose);
+gallery.addEventListener("click", clickImage);
 
 console.log(galleryItems);
 console.log(gallery);

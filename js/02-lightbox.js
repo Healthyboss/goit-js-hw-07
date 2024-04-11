@@ -16,5 +16,8 @@ for (const item of galleryItems) {
   );
 }
 
-const lightbox = new SimpleLightbox(".gallery a", { captions, captionDelay });
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
 console.log(galleryItems);

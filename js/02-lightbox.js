@@ -16,9 +16,5 @@ for (const item of galleryItems) {
   );
 }
 
-gallery.addEventListener("click", (event) => {
-  event.preventDefault();
-  const lightbox = new SimpleLightbox(".gallery a", { captions, captionDelay });
-  lightbox.show();
-});
+const lightbox = new SimpleLightbox(".gallery a", { captions, captionDelay });
 console.log(galleryItems);
